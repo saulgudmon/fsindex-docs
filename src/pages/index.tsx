@@ -17,15 +17,16 @@ export default function Home(): ReactNode {
               Everything and FSearch made machine-wide file search instant. fsindex brings that capability to agents.
             </p>
             <div className={styles.actions}>
-              <Link className="button button--primary button--lg" to="/docs">Get started <span>→</span></Link>
+              <Link className="button button--primary button--lg" to="/docs#install">Get started <span>→</span></Link>
             </div>
             <div className={styles.terminal}>
               <div className={styles.terminalBar}>
                 <span>agent scope :: filesystem</span>
                 <span>quick_install</span>
               </div>
-              <pre><code><span className={styles.prompt}>$</span> <span className={styles.placeholder}>[quick install command — coming soon]</span>{`\n`}<span className={styles.prompt}>$</span> fsindexd{`\n`}<span className={styles.prompt}>$</span> codex mcp add fsindex -- fsindex-mcp</code></pre>
+              <pre><code><span className={styles.prompt}>$</span> curl -fsSL https://raw.githubusercontent.com/saulgudmon/fsindex/refs/heads/main/packaging/install.sh | bash{`\n`}<span className={styles.prompt}>$</span> export PATH="$HOME/.local/bin:$PATH"{`\n`}<span className={styles.prompt}>$</span> systemctl --user enable --now fsindexd{`\n`}<span className={styles.prompt}>$</span> codex mcp add fsindex -- fsindex-mcp</code></pre>
             </div>
+            <p className={styles.buildNote}>Requires Bash, curl, tar, minisign, and Python 3 or jq. <Link to="/docs#install">Installation details →</Link></p>
             <div className={styles.projectMeta}>LINUX_ONLY / PER_USER / NAMES+METADATA / MIT</div>
             <p className={styles.buildNote}>// This was vibe coded in 1 day on Oct. 5 2026, so there may be issues!</p>
           </div>

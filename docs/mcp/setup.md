@@ -10,6 +10,8 @@ description: Configure Codex, Claude Desktop, OpenCode, or another MCP client to
 
 ## Before connecting
 
+Follow the [installation and daemon startup instructions](../introduction.md#install) first.
+
 You need:
 
 1. A running `fsindexd` daemon.
