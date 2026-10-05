@@ -27,6 +27,7 @@ export default function Home(): ReactNode {
               <pre><code><span className={styles.prompt}>$</span> <span className={styles.placeholder}>[quick install command — coming soon]</span>{`\n`}<span className={styles.prompt}>$</span> fsindexd{`\n`}<span className={styles.prompt}>$</span> codex mcp add fsindex -- fsindex-mcp</code></pre>
             </div>
             <div className={styles.projectMeta}>LINUX_ONLY / PER_USER / NAMES+METADATA / MIT</div>
+            <p className={styles.buildNote}>// This was vibe coded in 1 day on Oct. 5 2026, so there may be issues!</p>
           </div>
         </header>
 
