@@ -41,7 +41,7 @@ const config: Config = {
     ],
     navbar: {
       title: 'fsindex',
-      logo: {alt: 'fsindex logo', src: 'img/logo.svg'},
+      logo: {alt: 'fsindex logo', src: 'img/favicon.svg'},
       items: [
         {to: '/docs', label: 'Docs', position: 'right', className: 'navbar-docs-link'},
       ],
