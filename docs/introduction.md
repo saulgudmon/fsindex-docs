@@ -15,33 +15,32 @@ fsindex indexes **names and metadata only**: paths, size, modification time, ino
 
 ## Install
 
-Use the [install script](https://raw.githubusercontent.com/saulgudmon/fsindex/refs/heads/main/packaging/install.sh) to install a release on Linux x86_64 or ARM64. No source checkout or root access is needed; the default install location is `~/.local`.
-
-Install Bash, curl, tar, minisign, and either Python 3 or jq using your distribution's package manager first. The installer also needs `sha256sum` or `shasum` to verify downloads.
+fsindex installs per-user (no root) on Linux x86_64 or ARM64:
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/saulgudmon/fsindex/refs/heads/main/packaging/install.sh | bash
 export PATH="$HOME/.local/bin:$PATH"
 ```
 
-Add the `export PATH` line to your shell's startup file if `~/.local/bin` is not already on your `PATH`. The installer verifies the release manifest with minisign and checks the archive's SHA-256 checksum before installing.
+The [install script](https://github.com/saulgudmon/fsindex/blob/main/packaging/install.sh) is in the repository so you can read it first. It verifies the release with minisign and SHA-256, installs the daemon, CLI, MCP server, and desktop app, and adds an application-menu launcher.
 
 ### Start the daemon
-
-On systems with a systemd user session, enable the installed service:
 
 ```bash
 systemctl --user enable --now fsindexd
 fsindex status
 ```
 
-Without systemd, download the script and run `bash install.sh --no-service`, then run `fsindexd` in a terminal. Leave it running and use a second terminal for `fsindex status` and client setup.
+Without systemd, install with `--no-service` and run `fsindexd` in a terminal you leave open. For the desktop interface, run `fsindex-gui` or use the application launcher (the GUI requires WebKitGTK 4.1).
 
-For the desktop interface, run `fsindex-gui` or use the installed application launcher. The GUI requires WebKitGTK 4.1.
+### Update and uninstall
 
-### Update
+```bash
+fsindex update       # update in place
+fsindex uninstall    # remove the install
+```
 
-Re-run the install command to update in place. To customize an installation, download the script and use `bash install.sh --help` to see options such as `--prefix`, `--channel`, and `--version`.
+See [Install & uninstall](./install.md) for options, channels, what gets removed, and the one-liner uninstall.
 
 ## One index, multiple clients
 

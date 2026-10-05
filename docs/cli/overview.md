@@ -31,6 +31,8 @@ The command-line value takes precedence over the environment variable. With neit
 | [`reload`](./administration.md#reload) | Reload configuration from disk. |
 | [`paths`](./administration.md#paths) | Print default socket and config paths. |
 | [`config`](./administration.md#config) | Print the effective default configuration. |
+| [`update`](./administration.md#update) | Check for and install updates. |
+| [`uninstall`](./administration.md#uninstall) | Remove the per-user install. |
 
 ## Human and JSON output
 
