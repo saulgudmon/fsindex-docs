@@ -1,12 +1,27 @@
 ---
 sidebar_position: 1
 title: Connect an MCP client
-description: Configure Codex, Hermes Agent, OpenClaw, Claude Desktop, OpenCode, or another MCP client to use fsindex.
+description: Ask your agent to configure fsindex, or follow the manual MCP setup instructions for Codex, Hermes Agent, OpenClaw, Claude Desktop, OpenCode, and more.
 ---
 
 # Connect an MCP client
 
 `fsindex-mcp` is a local MCP server that communicates over standard input/output. Your MCP client starts it as a child process; the server then connects to the running `fsindexd` daemon through its Unix socket.
+
+## Recommended: ask your agent
+
+If you are using an agent that can configure its own MCP servers, paste this into
+your conversation first:
+
+```text
+fsindex is installed on this system and ready to use. Configure fsindex for yourself as an MCP server using https://fsindex.zyx0.xyz/docs/mcp/setup, then verify that its search, count, and status tools are available. Use the running fsindexd daemon and the default socket unless status shows otherwise. Reload or start a new session if needed, then tell me when it is ready.
+```
+
+This is usually the fastest route: the agent can use its own configuration
+workflow and confirm the connection in the same conversation. For manual setup,
+continue below.
+
+## Manual MCP setup
 
 ## Before connecting
 
