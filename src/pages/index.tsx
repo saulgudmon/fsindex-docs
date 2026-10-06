@@ -28,7 +28,8 @@ export default function Home(): ReactNode {
             </div>
             <p className={styles.buildNote}>Requires Bash, curl, tar, minisign, and Python 3 or jq. <Link to="/docs#install">Installation details →</Link></p>
             <div className={styles.projectMeta}>LINUX_ONLY / PER_USER / NAMES+METADATA / MIT</div>
-            <p className={styles.buildNote}>// This was vibe coded in 1 day on Oct. 5 2026, so there may be issues!</p>
+            <p className={styles.buildNote}>// This was vibe coded in 1 day on Oct. 5 2026, so there may be <Link to="https://github.com/saulgudmon/fsindex/issues">issues</Link>!</p>
+            <p className={styles.buildNote}>// If you decide to try it, thank you for being among the first! Any <Link to="https://github.com/saulgudmon/fsindex/discussions">feedback</Link> is appreciated.</p>
           </div>
         </header>
 
