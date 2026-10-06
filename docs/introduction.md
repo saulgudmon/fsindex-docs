@@ -5,7 +5,7 @@ title: What is fsindex?
 description: A live, in-memory filesystem index for agents, people, and scripts.
 ---
 
-# A filesystem index built for agents
+# A filesystem index <del>built</del> for agents
 
 fsindex is a Linux-only, per-user daemon that keeps a live index of filenames and metadata across configured roots and mounted volumes. Agents query it through MCP; people and scripts use the CLI.
 

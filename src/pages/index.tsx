@@ -12,7 +12,7 @@ export default function Home(): ReactNode {
         <header className={styles.hero}>
           <div className={clsx('container', styles.heroInner)}>
             <div className={styles.kicker}>FSINDEX<span>_</span></div>
-            <Heading as="h1">Ask your filesystem<br /><span>better questions.</span></Heading>
+            <Heading as="h1">Ask your filesystem<br /><span><del>better</del> questions.</span></Heading>
             <p className={styles.lead}>
               Everything and FSearch made machine-wide file search instant. fsindex brings that capability to agents.
             </p>

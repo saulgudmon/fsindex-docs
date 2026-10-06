@@ -75,6 +75,51 @@ html {
   object-fit: contain;
 }
 
+@media (max-width: 996px) {
+  .navbar-sidebar {
+    inset: 0 auto 0 0;
+    width: 100vw;
+    max-width: none;
+    height: 100dvh;
+    min-height: 100vh;
+    z-index: 1001;
+    background: var(--fs-night);
+    opacity: 1;
+    backdrop-filter: none;
+  }
+
+  .navbar-sidebar__brand,
+  .navbar-sidebar__items,
+  .navbar-sidebar__item,
+  .navbar-sidebar .menu {
+    background: var(--fs-night);
+  }
+
+  .navbar-sidebar__brand {
+    border-bottom: 1px solid var(--fs-line);
+  }
+
+  .navbar-sidebar__items {
+    height: calc(100dvh - var(--ifm-navbar-height));
+    min-height: calc(100vh - var(--ifm-navbar-height));
+  }
+
+  .navbar-sidebar__item {
+    min-height: 100%;
+  }
+
+  .navbar-sidebar__backdrop {
+    z-index: 1000;
+    background: rgba(5, 4, 15, .88);
+    opacity: 1;
+  }
+
+  .theme-doc-markdown h1 {
+    font-size: clamp(2.15rem, 10vw, 3rem);
+    overflow-wrap: anywhere;
+  }
+}
+
 .navbar-docs-link {
   border: 1px solid #4b4592;
   padding: .42rem .8rem !important;
@@ -126,6 +171,12 @@ html {
 .theme-doc-markdown h1 {
   font-size: 3rem;
   letter-spacing: -.045em;
+}
+
+.theme-doc-markdown h1 del {
+  color: var(--fs-lilac);
+  text-decoration-color: var(--fs-pink);
+  text-decoration-thickness: .09em;
 }
 
 .theme-doc-markdown h2 {
@@ -188,4 +239,15 @@ pre {
 
 .footer a:hover {
   color: var(--fs-cyan);
+}
+
+.footer-github-link {
+  display: inline-flex;
+  align-items: center;
+  vertical-align: -.18em;
+}
+
+.footer-github-link svg {
+  width: 1.05rem;
+  height: 1.05rem;
 }
