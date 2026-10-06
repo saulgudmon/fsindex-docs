@@ -1,7 +1,7 @@
 ---
 sidebar_position: 1
 title: Connect an MCP client
-description: Configure Codex, Claude Desktop, OpenCode, or another MCP client to use fsindex.
+description: Configure Codex, Hermes Agent, OpenClaw, Claude Desktop, OpenCode, or another MCP client to use fsindex.
 ---
 
 # Connect an MCP client
@@ -46,6 +46,51 @@ FSINDEX_SOCKET = "/path/to/fsindex.sock" # omit when using the default
 ```
 
 Codex's CLI, desktop app, and IDE extension share MCP configuration for the same host. In the app or extension, you can also add an **STDIO** server named `fsindex` with the command `fsindex-mcp`.
+
+## Hermes Agent
+
+Add the server from a terminal:
+
+```bash
+hermes mcp add fsindex --command fsindex-mcp
+```
+
+Hermes connects immediately and discovers the server's tools. Enable `search`, `count`, and `status` when it asks which tools to expose.
+
+Verify the saved connection:
+
+```bash
+hermes mcp test fsindex
+```
+
+For a custom socket:
+
+```bash
+hermes mcp add fsindex \
+  --command fsindex-mcp \
+  --env FSINDEX_SOCKET=/path/to/fsindex.sock
+```
+
+Start a new session after adding the server, or run `/reload-mcp` in an existing Hermes session.
+
+## OpenClaw
+
+Add the local stdio server and verify it with a live probe:
+
+```bash
+openclaw mcp add fsindex --command fsindex-mcp
+openclaw mcp doctor fsindex --probe
+```
+
+For a custom socket:
+
+```bash
+openclaw mcp add fsindex \
+  --command fsindex-mcp \
+  --env FSINDEX_SOCKET=/path/to/fsindex.sock
+```
+
+You can also add it from **Control UI → Settings → MCP**. Choose **Stdio**, name the server `fsindex`, and use `fsindex-mcp` as the command.
 
 ## Claude Desktop and generic MCP clients
 
