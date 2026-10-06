@@ -8,6 +8,10 @@ description: Ask your agent to configure fsindex, or follow the manual MCP setup
 
 `fsindex-mcp` is a local MCP server that communicates over standard input/output. Your MCP client starts it as a child process; the server then connects to the running `fsindexd` daemon through its Unix socket.
 
+## Before connecting
+
+Follow the [installation and daemon startup instructions](../introduction.md#install) first.
+
 ## Recommended: ask your agent
 
 If you are using an agent that can configure its own MCP servers, paste this into
@@ -22,18 +26,6 @@ workflow and confirm the connection in the same conversation. For manual setup,
 continue below.
 
 ## Manual MCP setup
-
-## Before connecting
-
-Follow the [installation and daemon startup instructions](../introduction.md#install) first.
-
-You need:
-
-1. A running `fsindexd` daemon.
-2. `fsindex-mcp` available on the MCP client's `PATH`, or its absolute path.
-3. The same socket selection for both processes.
-
-With the default socket, no environment variables are needed. If the daemon uses a custom socket, pass `FSINDEX_SOCKET` to the MCP server.
 
 ## Codex
 
