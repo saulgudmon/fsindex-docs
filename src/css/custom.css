@@ -173,12 +173,6 @@ html {
   letter-spacing: -.045em;
 }
 
-.theme-doc-markdown h1 del {
-  color: var(--fs-lilac);
-  text-decoration-color: var(--fs-pink);
-  text-decoration-thickness: .09em;
-}
-
 .theme-doc-markdown h2 {
   margin-top: 2.8rem;
   letter-spacing: -.025em;
