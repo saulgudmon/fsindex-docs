@@ -245,14 +245,6 @@ export default function Home(): ReactNode {
           </div>
         </header>
 
-        <section className={styles.boundary}>
-          <div className="container">
-            <div className={styles.boundaryInner}>
-              <span className={styles.boundaryMark}>[01]</span>
-              <div><Heading as="h2">Names and metadata. Never file contents.</Heading><p>Find what exists, where it is, how large it is, and when it changed.</p></div>
-            </div>
-          </div>
-        </section>
       </main>
     </Layout>
   );

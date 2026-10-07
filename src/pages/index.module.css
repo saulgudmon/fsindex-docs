@@ -12,11 +12,6 @@
 .actions span { padding-left: .8rem; }
 .projectMeta { margin-top: 2.2rem; color: #746ea2; font: .68rem var(--ifm-font-family-monospace); letter-spacing: .12em; }
 .buildNote { margin: .75rem 0 0; color: #9691c4; font: .72rem/1.6 var(--ifm-font-family-monospace); }
-.boundary { padding: 2.6rem 0; background: #100e27; color: #dedbf7; border-bottom: 1px solid #302a68; }
-.boundaryInner { display: flex; gap: 1.5rem; align-items: baseline; }
-.boundaryMark { color: #d88cff; font: .75rem var(--ifm-font-family-monospace); }
-.boundary h2 { margin: 0 0 .45rem; font: 600 1.15rem var(--ifm-font-family-monospace); letter-spacing: -.02em; }
-.boundary p { margin: 0; color: #9691c4; font: .88rem/1.6 var(--ifm-font-family-monospace); }
 @keyframes blink { 50% { opacity: 0; } }
 /* Typed request, followed by a three-second agent conversation. */
 .demo { width: 100%; max-width: 360px; margin: 0; font-family: var(--ifm-font-family-monospace); }
@@ -88,7 +83,7 @@
 .introHidden { opacity: 0; transform: translateY(-8px); visibility: hidden; }
 @keyframes equalize { to { transform: scaleY(.35); } }
 @media (max-width: 996px) { .heroInner { gap: 2rem; grid-template-columns: minmax(0, 1fr) 320px; }.hero h1 { font-size: clamp(2.7rem, 5.5vw, 4.5rem); }.lead { font-size: .95rem; } }
-@media (max-width: 760px) { .hero { padding: 2rem 0 2.7rem; }.heroInner { grid-template-columns: 1fr; gap: 3rem; }.hero h1 { font-size: clamp(2.7rem, 11vw, 4.5rem); letter-spacing: -.055em; }.demo { justify-self: center; width: calc(100% - 16px); }.actions { margin-bottom: 2.3rem; }.boundaryInner { align-items: flex-start; }.projectMeta { line-height: 1.8; } }
+@media (max-width: 760px) { .hero { padding: 2rem 0 2.7rem; }.heroInner { grid-template-columns: 1fr; gap: 3rem; }.hero h1 { font-size: clamp(2.7rem, 11vw, 4.5rem); letter-spacing: -.055em; }.demo { justify-self: center; width: calc(100% - 16px); }.actions { margin-bottom: 2.3rem; }.projectMeta { line-height: 1.8; } }
 @media (prefers-reduced-motion: reduce) { .chatStep, .keyboard, .chatIntro, .chatComposer, .sendIcon, .key { transition: none; }.kicker span, .searchDot, .visible .equalizer i, .typingCursor { animation: none; } }
 
 .secondExchange { margin-top: 24px; padding-top: 18px; border-top: 1px solid #292341; }
