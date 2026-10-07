@@ -126,7 +126,9 @@
 .desktopDemo { width: 100%; min-width: 0; margin: 0; font-family: var(--ifm-font-family-monospace); }
 .desktopWindow { border: 1px solid #665280; border-radius: 12px; overflow: hidden; background: #100c20; box-shadow: 0 20px 65px #05041099, 0 0 50px #7974ff0d; }
 .desktopTitle { display: flex; align-items: center; justify-content: space-between; height: 36px; padding: 0 13px; background: #1c152d; border-bottom: 1px solid #33253f; font-size: .64rem; color: #ac9abe; }
-.desktopTitle b { margin-left: 6px; color: #e3d9f0; font-weight: 500; }
+.desktopBrand { display: flex; align-items: center; gap: 7px; }
+.desktopBrand img { width: 18px; height: 18px; object-fit: contain; }
+.desktopTitle b { color: #e3d9f0; font-weight: 500; }
 .desktopToolbar { display: flex; align-items: center; gap: 10px; padding: 13px 12px; color: #a893bd; }
 .desktopSearch { display: flex; gap: 9px; align-items: center; min-width: 0; flex: 1; height: 35px; padding: 0 9px; border: 1px solid #aa70b8; border-radius: 5px; box-shadow: 0 0 15px #d88cff0a; color: #f0e4fc; font-size: .72rem; }
 .desktopSearch > span:last-child { margin-left: auto; color: #a795ba; }

@@ -1,5 +1,6 @@
 import {useRef, useState, type ReactNode} from 'react';
 import clsx from 'clsx';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import entries from './collection.json';
 import {useDemoTimeline, type DemoPlaybackProps} from './useDemoTimeline';
 import styles from '../../pages/index.module.css';
@@ -52,6 +53,7 @@ function Match({text, query}: {text: string; query: string}): ReactNode {
 }
 
 export default function DesktopDemo({running, onComplete, onProgress}: DemoPlaybackProps): ReactNode {
+  const appIcon = useBaseUrl('/img/favicon.svg');
   const demoRef = useRef<HTMLElement>(null);
   const resultsRef = useRef<HTMLDivElement>(null);
   const [query, setQuery] = useState('');
@@ -67,10 +69,19 @@ export default function DesktopDemo({running, onComplete, onProgress}: DemoPlayb
     });
     schedule(onComplete, 18000);
   }, elapsed => {
-    // Browse at a readable pace; the full 245-row list remains manually scrollable.
-    if (resultsRef.current && !interrupted.current && elapsed >= 5200) {
-      resultsRef.current.scrollTop = Math.min(elapsed - 5200, 11400) * 0.055;
+    const results = resultsRef.current;
+    if (!results || interrupted.current || elapsed < 5200) return;
+    const flingStart = 13000;
+    const slowDistance = (flingStart - 5200) * 0.055;
+    if (elapsed < flingStart) {
+      results.scrollTop = (elapsed - 5200) * 0.055;
+      return;
     }
+    // A free-spinning wheel: a quick burst that coasts to a stop over three seconds.
+    const progress = Math.min((elapsed - flingStart) / 3000, 1);
+    const coast = 1 - (1 - progress) ** 3;
+    const distance = Math.max(0, Math.min(5800, results.scrollHeight - results.clientHeight - slowDistance));
+    results.scrollTop = slowDistance + distance * coast;
   }, onProgress);
   const complete = query === queryText;
   const candidates = query.length >= 5 ? [...narrowingRows, ...entries] : [...initialRows, ...narrowingRows];
@@ -83,7 +94,7 @@ export default function DesktopDemo({running, onComplete, onProgress}: DemoPlayb
   return <figure ref={demoRef} className={styles.desktopDemo} aria-label="Illustrated fsindex desktop search with 245 sample results and highlighted query matches">
     <div className={styles.mockupLabel}>Desktop App</div>
     <div className={styles.desktopWindow}>
-      <div className={styles.desktopTitle}><span>⌕ <b>fsindex</b></span><span aria-hidden="true">−　□　×</span></div>
+      <div className={styles.desktopTitle}><span className={styles.desktopBrand}><img src={appIcon} alt="" width={18} height={18} /><b>fsindex</b></span><span aria-hidden="true">−　□　×</span></div>
       <div className={styles.desktopToolbar}>
         <span aria-hidden="true">☰</span>
         <div className={styles.desktopSearch} aria-label={`Search: ${query || 'waiting to type'}`}><span aria-hidden="true">⌕</span><span>{query}<i className={clsx(styles.typingCursor, complete && styles.cursorFinished)} /></span><span aria-hidden="true">×</span></div>
@@ -101,6 +112,6 @@ export default function DesktopDemo({running, onComplete, onProgress}: DemoPlayb
       </div>
       <div className={styles.desktopStatus}><span className={styles.searchOptions} aria-label="Mock search options: case sensitive off, regular expressions off, search paths on"><span>Aa</span><span>.*</span><span className={styles.mockToggleActive}>Path</span></span><span>{count} items</span><span>3 volumes</span><span className={styles.indexedCount}>1,597,682 indexed</span><span className={styles.indexStatus}>● Index current</span></div>
     </div>
-    <figcaption className={styles.desktopCaption}><div><strong>Your files. As you type.</strong><span>One search, across all your drives.</span></div><button className={styles.replayButton} onClick={() => setReplay(value => value + 1)}>↻ Replay</button><small>Illustrated desktop demo · sample paths · match highlighting preview</small></figcaption>
+    <figcaption className={styles.desktopCaption}><div><strong>Your files. As you type.</strong><span>One search, across all your drives.</span></div><button className={styles.replayButton} onClick={() => setReplay(value => value + 1)}>↻ Replay</button><small>Illustrated desktop demo</small></figcaption>
   </figure>;
 }
